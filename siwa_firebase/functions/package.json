@@ -10,20 +10,20 @@
     "logs": "firebase functions:log"
   },
   "engines": {
-    "node": "12"
+    "node": "16"
   },
   "main": "lib/index.js",
   "dependencies": {
-    "firebase-admin": "^9.4.2",
-    "firebase-functions": "^3.13.0"
+    "firebase-admin": "^11.0.1",
+    "firebase-functions": "^3.22.0"
   },
   "devDependencies": {
-    "@typescript-eslint/eslint-plugin": "^4.10.0",
-    "@typescript-eslint/parser": "^4.10.0",
-    "eslint": "^7.16.0",
-    "eslint-plugin-import": "^2.22.1",
-    "typescript": "^4.1.3",
-    "firebase-functions-test": "^0.2.3"
+    "@typescript-eslint/eslint-plugin": "^5.35.1",
+    "@typescript-eslint/parser": "^5.35.1",
+    "eslint": "^8.22.0",
+    "eslint-plugin-import": "^2.26.0",
+    "typescript": "^4.8.2",
+    "firebase-functions-test": "^2.3.0"
   },
   "private": true
 }
