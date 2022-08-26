@@ -23,7 +23,7 @@ Future<void> main() async {
 }
 
 class App extends StatelessWidget {
-  const App({Key key}) : super(key: key);
+  const App({super.key});
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -36,17 +36,17 @@ class App extends StatelessWidget {
 }
 
 class HomePage extends StatefulWidget {
-  const HomePage({Key key}) : super(key: key);
+  const HomePage({super.key});
 
   @override
-  _HomePageState createState() => _HomePageState();
+  State<HomePage> createState() => _HomePageState();
 }
 
 class _HomePageState extends State<HomePage> {
   var _signedIn = false;
-  String _id;
-  String _email;
-  String _name;
+  String? _id;
+  String? _email;
+  String? _name;
 
   @override
   void initState() {
@@ -66,8 +66,8 @@ class _HomePageState extends State<HomePage> {
           children: [
             _signedIn
                 ? ElevatedButton(
-                    child: const Text('Sign out'),
                     onPressed: _signOut,
+                    child: const Text('Sign out'),
                   )
                 : SignInButton(
                     Buttons.AppleDark,
@@ -131,10 +131,9 @@ class _HomePageState extends State<HomePage> {
       final auth = FirebaseAuth.instance;
       final userCredential = await auth.signInWithCredential(credential);
       final user = userCredential.user;
-      if (appleCredential.givenName != null) {
-        await user.updateProfile(
-          displayName:
-              '${appleCredential.givenName} ${appleCredential.familyName}',
+      if (appleCredential.givenName != null && user != null) {
+        await user.updateDisplayName(
+          '${appleCredential.givenName} ${appleCredential.familyName}',
         );
       }
       _updateUserInfo();
